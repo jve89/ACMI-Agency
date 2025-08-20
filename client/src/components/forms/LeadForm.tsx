@@ -24,8 +24,8 @@ export default function LeadForm() {
       const res = await postJSON<Result>("/api/leads", payload);
       setResult(res);
       if (res.ok) {
-        // Remount form to clear inputs. No reset() calls.
-        setFormKey((k) => k + 1);
+        window.location.href = "/success";
+        return;
       }
     } catch (err: any) {
       setResult({ ok: false, error: err?.message || "Request failed" });

@@ -1,10 +1,13 @@
-import Header from './components/Header';
-import Creds from './components/sections/Creds';
-import HowItWorks from './components/sections/HowItWorks';
-import Sectors from './components/sections/Sectors';
-import Contact from './components/sections/Contact';
+// client/src/App.tsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Creds from "./components/sections/Creds";
+import HowItWorks from "./components/sections/HowItWorks";
+import Sectors from "./components/sections/Sectors";
+import Contact from "./components/sections/Contact";
+import Success from "./components/sections/Success";
 
-export default function App() {
+function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -36,5 +39,16 @@ export default function App() {
         © {new Date().getFullYear()} Your Company OÜ
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/success" element={<Success />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
