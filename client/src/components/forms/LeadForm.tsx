@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+// client/src/components/forms/LeadForm.tsx
+import { useState } from "react";
 import { postJSON } from "../../utils/api";
 
 type Result = { ok: boolean; id?: string; error?: string };
@@ -6,14 +7,11 @@ type Result = { ok: boolean; id?: string; error?: string };
 export default function LeadForm() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
-  const [formKey, setFormKey] = useState(0); // remount key
-  const formRef = useRef<HTMLFormElement>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Read values immediately
-    const formEl = formRef.current ?? e.currentTarget;
+    const formEl = e.currentTarget; // capture before await
     const fd = new FormData(formEl);
     const payload = Object.fromEntries(fd.entries());
 
@@ -35,7 +33,7 @@ export default function LeadForm() {
   }
 
   return (
-    <form key={formKey} ref={formRef} onSubmit={onSubmit} className="space-y-4 max-w-xl">
+    <form onSubmit={onSubmit} className="space-y-4 max-w-xl">
       {/* Honeypot */}
       <div className="hidden">
         <label>Website<input name="website" type="text" autoComplete="off" /></label>
