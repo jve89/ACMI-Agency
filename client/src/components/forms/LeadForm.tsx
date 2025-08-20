@@ -1,3 +1,4 @@
+// client/src/components/forms/LeadForm.tsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postJSON } from "../../utils/api";
@@ -37,7 +38,10 @@ export default function LeadForm() {
     <form onSubmit={onSubmit} className="space-y-4 max-w-xl">
       {/* Honeypot */}
       <div className="hidden">
-        <label>Website<input name="website" type="text" autoComplete="off" /></label>
+        <label>
+          Website
+          <input name="website" type="text" autoComplete="off" />
+        </label>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -104,9 +108,7 @@ export default function LeadForm() {
         {loading ? "Sending…" : "Request ACMI"}
       </button>
 
-      {errorMsg && (
-        <p className="text-sm text-red-600">Error: {errorMsg}</p>
-      )}
+      {errorMsg && <p className="text-sm text-red-600">Error: {errorMsg}</p>}
     </form>
   );
 }

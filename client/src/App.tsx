@@ -21,10 +21,7 @@ function HomePage() {
               We connect airlines, tour operators, and organizations with trusted ACMI operators worldwide.
             </p>
             <div className="mt-8">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700"
-              >
+              <a href="#contact" className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">
                 Request Capacity
               </a>
             </div>
