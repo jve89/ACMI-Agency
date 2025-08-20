@@ -1,4 +1,4 @@
-]633;E;printf "# Snapshot @ %s on %s — DO NOT EDIT\\n\\n" "$(git rev-parse --short HEAD)" "$(date -u '+%F %T UTC')";06fbccdf-71cf-42f3-9749-b8f62ef860dd]633;C# Snapshot @ 91b9be6 on 2025-08-20 15:08:29 UTC — DO NOT EDIT
+]633;E;printf "# Snapshot @ %s on %s — DO NOT EDIT\\n\\n" "$(git rev-parse --short HEAD)" "$(date -u '+%F %T UTC')";d6cc8b8e-30ad-459e-ac93-2e271303bd1c]633;C# Snapshot @ 3b93358 on 2025-08-20 17:43:35 UTC — DO NOT EDIT
 
 .
 |-- client
@@ -14,7 +14,8 @@
 |   |   |   |   |-- Contact.tsx
 |   |   |   |   |-- Creds.tsx
 |   |   |   |   |-- HowItWorks.tsx
-|   |   |   |   `-- Sectors.tsx
+|   |   |   |   |-- Sectors.tsx
+|   |   |   |   `-- Success.tsx
 |   |   |   `-- Header.tsx
 |   |   |-- copy
 |   |   |   `-- site.ts
@@ -34,6 +35,7 @@
 |   |-- package-lock.json
 |   |-- package.json
 |   |-- postcss.config.js
+|   |-- tailwind.config.ts
 |   |-- tsconfig.app.json
 |   |-- tsconfig.json
 |   |-- tsconfig.node.json

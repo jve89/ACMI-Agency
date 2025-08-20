@@ -62,22 +62,34 @@ function subjectFor(lead: Lead, meta: LeadMeta): string {
 }
 
 function bodyText(lead: Lead, meta: LeadMeta): string {
-  const summary =
-`New ACMI lead
+  const fmtDate = (iso?: string) => {
+    if (!iso) return '-';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    } catch {
+      return iso;
+    }
+  };
 
-Airline: ${lead.airline}
-Contact: ${lead.contactName} <${lead.contactEmail}>${lead.phone ? `, ${lead.phone}` : ''}
-Route: ${lead.origin} → ${lead.destination}
-Window: ${lead.startDate ?? '-'} to ${lead.endDate ?? '-'}
-PAX: ${lead.pax ?? '-'}   Cargo: ${lead.cargo === true ? 'Yes' : lead.cargo === false ? 'No' : '-'}
-Aircraft pref: ${lead.aircraftPreference ?? '-'}
-Notes: ${lead.notes ?? '-'}
+  const summary = 
+`New ACMI Lead
 
-Meta:
-ID: ${meta.id}
-ReceivedAt: ${meta.receivedAtIso}
-IP: ${meta.ip ?? '-'}
-User-Agent: ${meta.userAgent ?? '-'}
+Airline:        ${lead.airline}
+Contact:        ${lead.contactName}  |  ${lead.contactEmail}${lead.phone ? `  |  ${lead.phone}` : ''}
+Route:          ${lead.origin} → ${lead.destination}
+Dates:          ${fmtDate(lead.startDate)} – ${fmtDate(lead.endDate)}
+PAX:            ${lead.pax ?? '-'}   Cargo: ${lead.cargo === true ? 'Yes' : lead.cargo === false ? 'No' : '-'}
+Aircraft:       ${lead.aircraftPreference ?? '-'}
+
+Notes:
+${lead.notes ?? '-'}
+
+Meta
+ID:             ${meta.id}
+Received:       ${fmtDate(meta.receivedAtIso)} ${new Date(meta.receivedAtIso).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })} UTC
+IP:             ${meta.ip ?? '-'}
+UA:             ${meta.userAgent ?? '-'}
 `;
 
   const machine = JSON.stringify({ id: meta.id, receivedAt: meta.receivedAtIso, lead }, null, 2);
