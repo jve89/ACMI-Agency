@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* Tell Tailwind what to scan (paths are relative to this file) */
-@source "../index.html";
-@source "../**/*.{ts,tsx,js,jsx,html}";
+/* Tailwind v4: paths are **relative to this CSS file** */
+@source "../../index.html";
+@source "../**/*.{ts,tsx,jsx,js}";
 
 html { scroll-behavior: smooth; }
