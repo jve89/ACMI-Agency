@@ -1,16 +1,18 @@
 // client/src/components/forms/LeadForm.tsx
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { postJSON } from "../../utils/api";
 
 type Result = { ok: boolean; id?: string; error?: string };
 
 export default function LeadForm() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formEl = e.currentTarget;   // capture reference early
+    const formEl = formRef.current;
+    if (!formEl) return;
 
     setLoading(true);
     setResult(null);
@@ -19,18 +21,18 @@ export default function LeadForm() {
     const payload = Object.fromEntries(fd.entries());
 
     try {
-        const res = await postJSON<Result>("/api/leads", payload);
-        setResult(res);
-        if (res.ok) formEl.reset();     // safe now
+      const res = await postJSON<Result>("/api/leads", payload);
+      setResult(res);
+      if (res.ok) formEl.reset();
     } catch (err: any) {
-        setResult({ ok: false, error: err?.message || "Request failed" });
+      setResult({ ok: false, error: err?.message || "Request failed" });
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 max-w-xl">
+    <form ref={formRef} onSubmit={onSubmit} className="space-y-4 max-w-xl">
       {/* Honeypot */}
       <div className="hidden">
         <label>Website<input name="website" type="text" autoComplete="off" /></label>
