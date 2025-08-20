@@ -3,7 +3,7 @@ import compression from 'compression';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import leadsRouter from './routes/leads';
+import leadsRouter from './routes/leads.js';
 
 const app = express();
 app.disable('x-powered-by');
