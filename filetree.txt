@@ -1,8 +1,10 @@
-]633;E;printf "# Snapshot @ %s on %s — DO NOT EDIT\\n\\n" "$(git rev-parse --short HEAD)" "$(date -u '+%F %T UTC')";d6cc8b8e-30ad-459e-ac93-2e271303bd1c]633;C# Snapshot @ 3b93358 on 2025-08-20 17:43:35 UTC — DO NOT EDIT
+# Snapshot @ 663d952 on 2025-08-20 18:55:20 UTC — DO NOT EDIT
 
 .
 |-- client
 |   |-- public
+|   |   |-- privacy.html
+|   |   |-- terms.html
 |   |   `-- vite.svg
 |   |-- src
 |   |   |-- assets
@@ -10,12 +12,20 @@
 |   |   |-- components
 |   |   |   |-- forms
 |   |   |   |   `-- LeadForm.tsx
+|   |   |   |-- pages
+|   |   |   |   |-- FAQPage.tsx
+|   |   |   |   `-- WhyUsPage.tsx
 |   |   |   |-- sections
+|   |   |   |   |-- CaseStudies.tsx
 |   |   |   |   |-- Contact.tsx
 |   |   |   |   |-- Creds.tsx
+|   |   |   |   |-- FAQ.tsx
 |   |   |   |   |-- HowItWorks.tsx
 |   |   |   |   |-- Sectors.tsx
-|   |   |   |   `-- Success.tsx
+|   |   |   |   |-- Success.tsx
+|   |   |   |   |-- Testimonials.tsx
+|   |   |   |   `-- WhyUs.tsx
+|   |   |   |-- Footer.tsx
 |   |   |   `-- Header.tsx
 |   |   |-- copy
 |   |   |   `-- site.ts

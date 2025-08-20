@@ -1,13 +1,15 @@
 // client/src/App.tsx
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Creds from "./components/sections/Creds";
 import HowItWorks from "./components/sections/HowItWorks";
 import Sectors from "./components/sections/Sectors";
 import Contact from "./components/sections/Contact";
 import Success from "./components/sections/Success";
+import PrivacyPage from "./components/pages/PrivacyPage";
+import TermsPage from "./components/pages/TermsPage";
 
-// --- Inline extra sections --- //
+// --- Inline homepage sections --- //
 function Hero() {
   return (
     <section id="top" className="bg-white">
@@ -16,23 +18,6 @@ function Hero() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             ACMI capacity on demand. Fast and precise.
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-gray-700">
-            We source aircraft, crew, maintenance, and insurance to keep your schedule flying. One brief. One contact. Options within hours.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-start justify-center">
-            <a
-              href="#contact"
-              className="border border-indigo-600 text-indigo-600 font-semibold px-5 py-2.5 rounded hover:bg-indigo-50 transition text-center"
-            >
-              Submit request
-            </a>
-            <a
-              href="#why-us"
-              className="text-indigo-700 font-semibold hover:underline text-center"
-            >
-              Why us
-            </a>
-          </div>
         </div>
         <div className="flex-1 max-w-md overflow-hidden rounded-xl shadow-lg">
           <img
@@ -132,20 +117,47 @@ function FooterInline() {
     <footer className="text-center text-sm text-gray-500 py-8 space-y-2 bg-white">
       <div>© {year} ACMI Agency. All rights reserved.</div>
       <div className="space-x-4">
-        <a href="/privacy" className="hover:underline">
-          Privacy
-        </a>
-        <a href="/terms" className="hover:underline">
-          Terms
-        </a>
-        <a href="#contact" className="hover:underline">
-          Contact
-        </a>
+        <Link to="/privacy" className="hover:underline">Privacy</Link>
+        <Link to="/terms" className="hover:underline">Terms</Link>
+        <a href="#contact" className="hover:underline">Contact</a>
       </div>
     </footer>
   );
 }
 
+// --- Dedicated pages for extra depth --- //
+function WhyUsPage() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1 p-8 md:p-16 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Why Us</h1>
+        <p className="text-gray-700 mb-4">
+          More than a broker — we act as an extension of your ops team. From first brief to final signature, you know exactly where things stand.
+        </p>
+        <p className="text-gray-700">
+          We cut noise, clarify trade-offs, and keep both airlines and operators aligned. That’s why our partners stick.
+        </p>
+      </main>
+      <FooterInline />
+    </div>
+  );
+}
+
+function FAQPage() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1 p-8 md:p-16 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">FAQ</h1>
+        <p className="text-gray-700 mb-4">Coming soon: answers to the most common questions.</p>
+      </main>
+      <FooterInline />
+    </div>
+  );
+}
+
+// --- Homepage layout --- //
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -171,6 +183,10 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/why" element={<WhyUsPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
         <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
