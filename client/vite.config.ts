@@ -10,5 +10,8 @@ export default defineConfig({
       // wildcard lets Gitpod preview URLs work
       '.gitpod.io'
     ],
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
 })
