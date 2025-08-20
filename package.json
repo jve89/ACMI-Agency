@@ -1,0 +1,28 @@
+{
+  "name": "acmi-agency",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently -k -n SERVER,CLIENT -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "build:client": "npm --prefix client run build",
+    "build:server": "tsc -p server",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node dist/server/index.js",
+    "heroku-postbuild": "npm ci --prefix client && npm run build --prefix client && npm run build:server"
+  },
+  "dependencies": {
+    "compression": "^1.8.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "concurrently": "^8.2.2",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
