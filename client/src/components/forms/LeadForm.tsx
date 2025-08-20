@@ -1,28 +1,32 @@
-// client/src/components/forms/LeadForm.tsx
 import { useRef, useState } from "react";
 import { postJSON } from "../../utils/api";
 
 type Result = { ok: boolean; id?: string; error?: string };
 
 export default function LeadForm() {
-  const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
+  const [formKey, setFormKey] = useState(0); // remount key
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const formEl = formRef.current ?? e.currentTarget; // fallback
-    setLoading(true);
-    setResult(null);
-
+    // Read values immediately
+    const formEl = formRef.current ?? e.currentTarget;
     const fd = new FormData(formEl);
     const payload = Object.fromEntries(fd.entries());
+
+    setLoading(true);
+    setResult(null);
 
     try {
       const res = await postJSON<Result>("/api/leads", payload);
       setResult(res);
-      if (res.ok) formEl?.reset(); // null-safe
+      if (res.ok) {
+        // Remount form to clear inputs. No reset() calls.
+        setFormKey((k) => k + 1);
+      }
     } catch (err: any) {
       setResult({ ok: false, error: err?.message || "Request failed" });
     } finally {
@@ -31,7 +35,8 @@ export default function LeadForm() {
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className="space-y-4 max-w-xl">
+    <form key={formKey} ref={formRef} onSubmit={onSubmit} className="space-y-4 max-w-xl">
+      {/* Honeypot */}
       <div className="hidden">
         <label>Website<input name="website" type="text" autoComplete="off" /></label>
       </div>
