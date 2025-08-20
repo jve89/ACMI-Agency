@@ -1,12 +1,13 @@
-// client/src/components/forms/LeadForm.tsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { postJSON } from "../../utils/api";
 
 type Result = { ok: boolean; id?: string; error?: string };
 
 export default function LeadForm() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<Result | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,17 +17,17 @@ export default function LeadForm() {
     const payload = Object.fromEntries(fd.entries());
 
     setLoading(true);
-    setResult(null);
+    setErrorMsg(null);
 
     try {
       const res = await postJSON<Result>("/api/leads", payload);
-      setResult(res);
       if (res.ok) {
-        window.location.href = "/success";
+        navigate("/success", { replace: true });
         return;
       }
+      setErrorMsg(res.error || "Submission failed");
     } catch (err: any) {
-      setResult({ ok: false, error: err?.message || "Request failed" });
+      setErrorMsg(err?.message || "Request failed");
     } finally {
       setLoading(false);
     }
@@ -103,10 +104,8 @@ export default function LeadForm() {
         {loading ? "Sending…" : "Request ACMI"}
       </button>
 
-      {result && (
-        <p className={`text-sm ${result.ok ? "text-green-600" : "text-red-600"}`}>
-          {result.ok ? "Thanks. We’ll contact you shortly." : `Error: ${result.error}`}
-        </p>
+      {errorMsg && (
+        <p className="text-sm text-red-600">Error: {errorMsg}</p>
       )}
     </form>
   );
