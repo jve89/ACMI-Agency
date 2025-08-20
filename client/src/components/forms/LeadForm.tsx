@@ -10,20 +10,22 @@ export default function LeadForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formEl = e.currentTarget;   // capture reference early
+
     setLoading(true);
     setResult(null);
 
-    const fd = new FormData(e.currentTarget);
+    const fd = new FormData(formEl);
     const payload = Object.fromEntries(fd.entries());
 
     try {
-      const res = await postJSON<Result>("/api/leads", payload);
-      setResult(res);
-      if (res.ok) e.currentTarget.reset();
+        const res = await postJSON<Result>("/api/leads", payload);
+        setResult(res);
+        if (res.ok) formEl.reset();     // safe now
     } catch (err: any) {
-      setResult({ ok: false, error: err?.message || "Request failed" });
+        setResult({ ok: false, error: err?.message || "Request failed" });
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
   }
 
