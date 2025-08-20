@@ -1,0 +1,46 @@
+# Snapshot @ af9b0dc on 2025-08-20 10:12:32 UTC — DO NOT EDIT
+
+.
+|-- client
+|   |-- public
+|   |   `-- vite.svg
+|   |-- src
+|   |   |-- assets
+|   |   |   `-- react.svg
+|   |   |-- components
+|   |   |   |-- sections
+|   |   |   |   |-- Contact.tsx
+|   |   |   |   |-- Creds.tsx
+|   |   |   |   |-- HowItWorks.tsx
+|   |   |   |   `-- Sectors.tsx
+|   |   |   `-- Header.tsx
+|   |   |-- copy
+|   |   |   `-- site.ts
+|   |   |-- styles
+|   |   |   `-- tailwind.css
+|   |   |-- App.css
+|   |   |-- App.tsx
+|   |   |-- index.css
+|   |   |-- main.tsx
+|   |   `-- vite-env.d.ts
+|   |-- .gitignore
+|   |-- README.md
+|   |-- eslint.config.js
+|   |-- index.html
+|   |-- package-lock.json
+|   |-- package.json
+|   |-- postcss.config.js
+|   |-- tsconfig.app.json
+|   |-- tsconfig.json
+|   |-- tsconfig.node.json
+|   `-- vite.config.ts
+|-- server
+|   |-- index.ts
+|   `-- tsconfig.json
+|-- .gitignore
+|-- LICENSE
+|-- Procfile
+|-- README.md
+|-- filetree.txt
+|-- package-lock.json
+`-- package.json
