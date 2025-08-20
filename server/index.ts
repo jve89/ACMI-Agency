@@ -2,10 +2,21 @@ import express from 'express';
 import compression from 'compression';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import leadsRouter from './routes/leads';
 
 const app = express();
 app.disable('x-powered-by');
 app.use(compression());
+
+// trust proxy for correct client IPs on Heroku
+app.set('trust proxy', 1);
+
+// body parsers for JSON and form posts
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// API routes
+app.use('/api/leads', leadsRouter);
 
 // health
 app.get('/healthz', (_req, res) => res.status(200).send('ok'));

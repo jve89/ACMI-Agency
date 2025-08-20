@@ -1,4 +1,4 @@
-# Snapshot @ af9b0dc on 2025-08-20 10:12:32 UTC — DO NOT EDIT
+]633;E;printf "# Snapshot @ %s on %s — DO NOT EDIT\\n\\n" "$(git rev-parse --short HEAD)" "$(date -u '+%F %T UTC')";4f82c06f-85a3-4b6d-8a8a-aa38a6441bd2]633;C# Snapshot @ 48a7731 on 2025-08-20 14:07:21 UTC — DO NOT EDIT
 
 .
 |-- client
@@ -8,6 +8,8 @@
 |   |   |-- assets
 |   |   |   `-- react.svg
 |   |   |-- components
+|   |   |   |-- forms
+|   |   |   |   `-- LeadForm.tsx
 |   |   |   |-- sections
 |   |   |   |   |-- Contact.tsx
 |   |   |   |   |-- Creds.tsx
@@ -18,6 +20,8 @@
 |   |   |   `-- site.ts
 |   |   |-- styles
 |   |   |   `-- tailwind.css
+|   |   |-- utils
+|   |   |   `-- api.ts
 |   |   |-- App.css
 |   |   |-- App.tsx
 |   |   |-- index.css
@@ -35,6 +39,12 @@
 |   |-- tsconfig.node.json
 |   `-- vite.config.ts
 |-- server
+|   |-- routes
+|   |   `-- leads.ts
+|   |-- services
+|   |   `-- mail.ts
+|   |-- types
+|   |   `-- leads.ts
 |   |-- index.ts
 |   `-- tsconfig.json
 |-- .gitignore
