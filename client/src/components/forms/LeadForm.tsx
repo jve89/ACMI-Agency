@@ -11,9 +11,8 @@ export default function LeadForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formEl = formRef.current;
-    if (!formEl) return;
 
+    const formEl = formRef.current ?? e.currentTarget; // fallback
     setLoading(true);
     setResult(null);
 
@@ -23,7 +22,7 @@ export default function LeadForm() {
     try {
       const res = await postJSON<Result>("/api/leads", payload);
       setResult(res);
-      if (res.ok) formEl.reset();
+      if (res.ok) formEl?.reset(); // null-safe
     } catch (err: any) {
       setResult({ ok: false, error: err?.message || "Request failed" });
     } finally {
@@ -33,7 +32,6 @@ export default function LeadForm() {
 
   return (
     <form ref={formRef} onSubmit={onSubmit} className="space-y-4 max-w-xl">
-      {/* Honeypot */}
       <div className="hidden">
         <label>Website<input name="website" type="text" autoComplete="off" /></label>
       </div>
