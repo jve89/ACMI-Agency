@@ -1,8 +1,13 @@
-# Snapshot @ 9f03199 on 2025-08-21 09:28:06 UTC — DO NOT EDIT
+# Snapshot @ ce9bdfc on 2025-08-21 17:25:20 UTC — DO NOT EDIT
 
 .
 |-- client
 |   |-- public
+|   |   |-- og-image.png
+|   |   |-- robots.txt
+|   |   |-- vanerkelaviationgroup-transparent.svg
+|   |   |-- vanerkelaviationgroup.png
+|   |   `-- vanerkelaviationgroup.svg
 |   |-- src
 |   |   |-- assets
 |   |   |   `-- react.svg
@@ -11,20 +16,22 @@
 |   |   |   |   `-- LeadForm.tsx
 |   |   |   |-- pages
 |   |   |   |   |-- CasesPage.tsx
+|   |   |   |   |-- ContactPage.tsx
 |   |   |   |   |-- FAQPage.tsx
+|   |   |   |   |-- HomePage.tsx
 |   |   |   |   |-- PrivacyPage.tsx
+|   |   |   |   |-- SuccessPage.tsx
 |   |   |   |   |-- TermsPage.tsx
 |   |   |   |   `-- WhyUsPage.tsx
 |   |   |   |-- sections
 |   |   |   |   |-- CaseStudies.tsx
 |   |   |   |   |-- Contact.tsx
 |   |   |   |   |-- Creds.tsx
-|   |   |   |   |-- FAQ.tsx
+|   |   |   |   |-- Hero.tsx
 |   |   |   |   |-- HowItWorks.tsx
 |   |   |   |   |-- Sectors.tsx
-|   |   |   |   |-- Success.tsx
 |   |   |   |   |-- Testimonials.tsx
-|   |   |   |   `-- WhyUs.tsx
+|   |   |   |   `-- ValueProps.tsx
 |   |   |   |-- Footer.tsx
 |   |   |   `-- Header.tsx
 |   |   |-- copy

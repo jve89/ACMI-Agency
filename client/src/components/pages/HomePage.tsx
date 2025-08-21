@@ -1,10 +1,11 @@
 // client/src/components/pages/HomePage.tsx
 
 import Hero from "../sections/Hero";
-import ValueProps from "../sections/ValueProps";
+import Services from "../sections/Services";
 import HowItWorks from "../sections/HowItWorks";
 import Sectors from "../sections/Sectors";
 import CaseStudies from "../sections/CaseStudies";
+import Metrics from "../sections/Metrics";
 import Creds from "../sections/Creds";
 import Contact from "../sections/Contact";
 
@@ -15,8 +16,8 @@ export default function HomePage() {
         <Hero />
       </section>
 
-      <section id="value">
-        <ValueProps />
+      <section id="services">
+        <Services />
       </section>
 
       <section id="how-it-works">
@@ -29,6 +30,10 @@ export default function HomePage() {
 
       <section id="cases">
         <CaseStudies />
+      </section>
+
+      <section id="metrics">
+        <Metrics />
       </section>
 
       <section id="creds">

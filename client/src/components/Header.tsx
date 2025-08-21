@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-type MenuKey = "solutions" | "proof" | "company" | null;
+type MenuKey = "solutions" | "results" | "about" | null;
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,8 +44,20 @@ export default function Header() {
     setOpenMenu(key);
   }
 
-  const Anchor = ({ href, children, className = "" }: { href: string; children: string; className?: string }) => (
-    <a href={href} className={`hover:text-gray-900 transition-colors ${className}`} onClick={() => setOpenMenu(null)}>
+  const Anchor = ({
+    href,
+    children,
+    className = "",
+  }: {
+    href: string;
+    children: string;
+    className?: string;
+  }) => (
+    <a
+      href={href}
+      className={`block px-3 py-2 rounded hover:bg-gray-50 transition-colors ${className}`}
+      onClick={() => setOpenMenu(null)}
+    >
       {children}
     </a>
   );
@@ -76,12 +88,24 @@ export default function Header() {
               className="inline-flex items-center gap-1 hover:text-gray-900"
               aria-haspopup="true"
               aria-expanded={openMenu === "solutions"}
-              onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
+              onClick={() =>
+                setOpenMenu(openMenu === "solutions" ? null : "solutions")
+              }
               onFocus={() => open("solutions")}
             >
               Solutions
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
               </svg>
             </button>
             {openMenu === "solutions" && (
@@ -90,17 +114,17 @@ export default function Header() {
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Anchor href="/#services" className="block px-3 py-2 rounded hover:bg-gray-50">Services</Anchor>
-                <Anchor href="/#services" className="block px-3 py-2 rounded hover:bg-gray-50">How it works</Anchor>
-                <Anchor href="/#sectors" className="block px-3 py-2 rounded hover:bg-gray-50">Who we serve</Anchor>
+                <Anchor href="/#services">Services</Anchor>
+                <Anchor href="/#how-it-works">How It Works</Anchor>
+                <Anchor href="/#sectors">Who We Serve</Anchor>
               </div>
             )}
           </div>
 
-          {/* Proof */}
+          {/* Results */}
           <div
             className="relative"
-            onMouseEnter={() => open("proof")}
+            onMouseEnter={() => open("results")}
             onMouseLeave={scheduleHide}
             data-desktop-menu
           >
@@ -108,60 +132,112 @@ export default function Header() {
               type="button"
               className="inline-flex items-center gap-1 hover:text-gray-900"
               aria-haspopup="true"
-              aria-expanded={openMenu === "proof"}
-              onClick={() => setOpenMenu(openMenu === "proof" ? null : "proof")}
-              onFocus={() => open("proof")}
+              aria-expanded={openMenu === "results"}
+              onClick={() =>
+                setOpenMenu(openMenu === "results" ? null : "results")
+              }
+              onFocus={() => open("results")}
             >
-              Proof
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              Results
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
               </svg>
             </button>
-            {openMenu === "proof" && (
+            {openMenu === "results" && (
               <div
                 className="absolute left-0 mt-2 w-56 rounded-xl border border-gray-100 bg-white shadow-lg p-2"
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Anchor href="/#cases" className="block px-3 py-2 rounded hover:bg-gray-50">Case studies</Anchor>
-                <Link to="/success" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  Success
+                <Anchor href="/#cases">Case Studies</Anchor>
+                <Anchor href="/#metrics">Metrics</Anchor>
+              </div>
+            )}
+          </div>
+
+          {/* About */}
+          <div
+            className="relative"
+            onMouseEnter={() => open("about")}
+            onMouseLeave={scheduleHide}
+            data-desktop-menu
+          >
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 hover:text-gray-900"
+              aria-haspopup="true"
+              aria-expanded={openMenu === "about"}
+              onClick={() =>
+                setOpenMenu(openMenu === "about" ? null : "about")
+              }
+              onFocus={() => open("about")}
+            >
+              About
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
+            </button>
+            {openMenu === "about" && (
+              <div
+                className="absolute left-0 mt-2 w-56 rounded-xl border border-gray-100 bg-white shadow-lg p-2"
+                onMouseEnter={clearHide}
+                onMouseLeave={scheduleHide}
+              >
+                <Link
+                  to="/why"
+                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  Why Us
                 </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Company */}
-          <div
-            className="relative"
-            onMouseEnter={() => open("company")}
-            onMouseLeave={scheduleHide}
-            data-desktop-menu
-          >
-            <button
-              type="button"
-              className="inline-flex items-center gap-1 hover:text-gray-900"
-              aria-haspopup="true"
-              aria-expanded={openMenu === "company"}
-              onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
-              onFocus={() => open("company")}
-            >
-              Company
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            {openMenu === "company" && (
-              <div
-                className="absolute left-0 mt-2 w-56 rounded-xl border border-gray-100 bg-white shadow-lg p-2"
-                onMouseEnter={clearHide}
-                onMouseLeave={scheduleHide}
-              >
-                <Link to="/why" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Why Us</Link>
-                <Link to="/faq" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>FAQ</Link>
-                <Link to="/privacy" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Privacy</Link>
-                <Link to="/terms" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Terms</Link>
-                <Link to="/contact" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Contact</Link>
+                <Link
+                  to="/faq"
+                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  FAQ
+                </Link>
+                <Link
+                  to="/privacy"
+                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  to="/terms"
+                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  Terms
+                </Link>
+                <Link
+                  to="/contact"
+                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  Contact
+                </Link>
               </div>
             )}
           </div>
@@ -186,7 +262,13 @@ export default function Header() {
           onClick={() => setMobileOpen((v) => !v)}
           className="xl:hidden p-2 rounded-md border border-gray-200 text-gray-700 hover:bg-gray-50"
         >
-          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            className="w-6 h-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -200,46 +282,104 @@ export default function Header() {
       <div
         id="mobile-nav"
         ref={panelRef}
-        className={`xl:hidden border-t border-gray-100 overflow-hidden transition-[max-height] duration-300 ${mobileOpen ? "max-h-[28rem]" : "max-h-0"}`}
+        className={`xl:hidden border-t border-gray-100 overflow-hidden transition-[max-height] duration-300 ${
+          mobileOpen ? "max-h-[32rem]" : "max-h-0"
+        }`}
       >
         <div className="px-6 py-4 bg-white text-gray-800">
           {/* Solutions */}
           <details className="group">
             <summary className="flex items-center justify-between py-2 cursor-pointer select-none">
               <span className="font-medium">Solutions</span>
-              <svg className="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6"/></svg>
+              <svg
+                className="w-4 h-4 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <a href="/#services" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Services</a>
-              <a href="/#services" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">How it works</a>
-              <a href="/#sectors" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Who we serve</a>
+              <a href="/#services" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Services
+              </a>
+              <a href="/#how-it-works" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                How It Works
+              </a>
+              <a href="/#sectors" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Who We Serve
+              </a>
             </nav>
           </details>
 
-          {/* Proof */}
+          {/* Results */}
           <details className="group">
             <summary className="flex items-center justify-between py-2 cursor-pointer select-none">
-              <span className="font-medium">Proof</span>
-              <svg className="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6"/></svg>
+              <span className="font-medium">Results</span>
+              <svg
+                className="w-4 h-4 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <a href="/#cases" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Case studies</a>
-              <Link to="/success" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Success</Link>
+              <a href="/#cases" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Case Studies
+              </a>
+              <a href="/#metrics" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Metrics
+              </a>
             </nav>
           </details>
 
-          {/* Company */}
+          {/* About */}
           <details className="group">
             <summary className="flex items-center justify-between py-2 cursor-pointer select-none">
-              <span className="font-medium">Company</span>
-              <svg className="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6"/></svg>
+              <span className="font-medium">About</span>
+              <svg
+                className="w-4 h-4 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <Link to="/why" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Why Us</Link>
-              <Link to="/faq" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">FAQ</Link>
-              <Link to="/privacy" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Privacy</Link>
-              <Link to="/terms" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Terms</Link>
-              <Link to="/contact" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Contact</Link>
+              <Link to="/why" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Why Us
+              </Link>
+              <Link to="/faq" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                FAQ
+              </Link>
+              <Link to="/privacy" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Privacy
+              </Link>
+              <Link to="/terms" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Terms
+              </Link>
+              <Link to="/contact" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                Contact
+              </Link>
             </nav>
           </details>
 

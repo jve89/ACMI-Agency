@@ -9,18 +9,25 @@ export default function Hero() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
             ACMI and wet lease capacity on demand.
           </h1>
-          <p className="mt-4 text-lg text-gray-600">
-            Need an aircraft fast? Brief once. We return matching options within{" "}
-            <span className="font-medium text-gray-900">24 hours</span>.
+
+          {/* Subline */}
+          <p className="mt-6 text-xl text-gray-600">
+            Need flight capacity? <span className="font-medium">We’ll return a matching option within 24 hours.</span>
           </p>
 
           {/* Badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:justify-start">
-            <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
-              SLA: ≤24h response
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:justify-start">
+            <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-normal text-gray-700">
+              Global reach
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700">
-              Confidentiality by default
+            <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-normal text-gray-700">
+              Trusted by operators
+            </span>
+            <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-normal text-gray-700">
+              Direct access to lessors
+            </span>
+            <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-normal text-gray-700">
+              ACMI expertise
             </span>
           </div>
 
