@@ -1,11 +1,8 @@
-# Snapshot @ 663d952 on 2025-08-20 18:55:20 UTC — DO NOT EDIT
+# Snapshot @ 9f03199 on 2025-08-21 09:28:06 UTC — DO NOT EDIT
 
 .
 |-- client
 |   |-- public
-|   |   |-- privacy.html
-|   |   |-- terms.html
-|   |   `-- vite.svg
 |   |-- src
 |   |   |-- assets
 |   |   |   `-- react.svg
@@ -13,7 +10,10 @@
 |   |   |   |-- forms
 |   |   |   |   `-- LeadForm.tsx
 |   |   |   |-- pages
+|   |   |   |   |-- CasesPage.tsx
 |   |   |   |   |-- FAQPage.tsx
+|   |   |   |   |-- PrivacyPage.tsx
+|   |   |   |   |-- TermsPage.tsx
 |   |   |   |   `-- WhyUsPage.tsx
 |   |   |   |-- sections
 |   |   |   |   |-- CaseStudies.tsx
