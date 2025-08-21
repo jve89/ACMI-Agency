@@ -13,13 +13,11 @@ export default function Header() {
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const { pathname } = useLocation();
 
-  // Close panels on route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenMenu(null);
   }, [pathname]);
 
-  // Global ESC to close
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -31,7 +29,6 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  // Helpers for desktop hover intent
   function scheduleHide() {
     clearHide();
     hideTimer.current = window.setTimeout(() => setOpenMenu(null), 160);
@@ -55,18 +52,17 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 md:py-5">
         {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div aria-hidden className="h-9 w-9 rounded-xl border border-gray-200 bg-gray-50 grid place-items-center">
-            <span className="text-xs font-semibold text-gray-600">VE</span>
-          </div>
-          <Link to="/" className="text-base sm:text-lg font-semibold text-gray-900">
-            Van Erkel Aviation Group
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/vanerkelaviationgroup.svg"
+            alt="Van Erkel Aviation Group"
+            className="h-12 md:h-14 xl:h-16 w-auto"
+          />
+        </Link>
 
-        {/* Desktop grouped nav */}
+        {/* Desktop nav */}
         <nav className="hidden xl:flex items-center gap-6 text-gray-700">
           {/* Solutions */}
           <div
@@ -161,21 +157,11 @@ export default function Header() {
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Link to="/why" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  Why Us
-                </Link>
-                <Link to="/faq" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  FAQ
-                </Link>
-                <Link to="/privacy" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  Privacy
-                </Link>
-                <Link to="/terms" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  Terms
-                </Link>
-                {/* <Link to="/legal" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>
-                  Legal
-                </Link> */}
+                <Link to="/why" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Why Us</Link>
+                <Link to="/faq" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>FAQ</Link>
+                <Link to="/privacy" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Privacy</Link>
+                <Link to="/terms" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Terms</Link>
+                <Link to="/contact" className="block px-3 py-2 rounded hover:bg-gray-50" onClick={() => setOpenMenu(null)}>Contact</Link>
               </div>
             )}
           </div>
@@ -253,7 +239,7 @@ export default function Header() {
               <Link to="/faq" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">FAQ</Link>
               <Link to="/privacy" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Privacy</Link>
               <Link to="/terms" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Terms</Link>
-              {/* <Link to="/legal" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Legal</Link> */}
+              <Link to="/contact" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">Contact</Link>
             </nav>
           </details>
 

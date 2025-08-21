@@ -46,7 +46,7 @@ export default function Hero() {
           <img
             src="/og-image.png"
             alt="Aircraft capacity dashboard illustration"
-            className="w-full h-full object-contain p-6"
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
