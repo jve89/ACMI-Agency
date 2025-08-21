@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ValueProps() {
   return (
     <section aria-label="Key benefits" className="bg-indigo-50">

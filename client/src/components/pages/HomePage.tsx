@@ -1,6 +1,5 @@
 // client/src/components/pages/HomePage.tsx
 
-import React from "react";
 import Hero from "../sections/Hero";
 import ValueProps from "../sections/ValueProps";
 import HowItWorks from "../sections/HowItWorks";
