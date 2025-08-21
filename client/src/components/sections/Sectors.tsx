@@ -12,9 +12,9 @@ export default function Sectors() {
 
   return (
     <section id="sectors" className="py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+      <div className="mx-auto max-w-6xl px-6 text-center">
         <h2 className="text-3xl font-bold text-gray-900">Who We Serve</h2>
-        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-3 mx-auto max-w-2xl text-gray-600">
           Flexible ACMI and charter solutions for every type of operation.
         </p>
 
@@ -22,9 +22,9 @@ export default function Sectors() {
           {sectors.map(({ name, Icon }) => (
             <li
               key={name}
-              className="p-6 bg-white border rounded-xl shadow-sm flex flex-col items-center"
+              className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md"
             >
-              <Icon className="h-6 w-6 text-indigo-700" aria-hidden="true" />
+              <Icon className="h-8 w-8 text-indigo-600" aria-hidden="true" />
               <span className="mt-3 font-medium text-gray-800">{name}</span>
             </li>
           ))}
