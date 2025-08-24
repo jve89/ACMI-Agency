@@ -39,12 +39,12 @@ export default function HowItWorks() {
         </div>
 
         {/* Learn more */}
-        <div className="mt-8 text-center">
+        <div className="mt-12 text-center">
           <Link
-            to="/why"
-            className="text-sm font-medium text-indigo-700 hover:underline"
+            to="/how-it-works"
+            className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
           >
-            Learn more about our process
+            Learn More
           </Link>
         </div>
       </div>

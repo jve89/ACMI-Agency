@@ -16,10 +16,10 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section id="cases" className="py-16 bg-white">
+    <section id="case-studies" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Example Scenarios
+          Case Studies
         </h2>
         <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
           A few snapshots of how ACMI capacity keeps airlines and organizations moving.
@@ -37,12 +37,13 @@ export default function CaseStudies() {
           ))}
         </div>
 
-        <div className="mt-10">
+        {/* Learn More button */}
+        <div className="mt-12">
           <a
             href="/cases"
             className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
           >
-            See More
+            Learn More
           </a>
         </div>
       </div>

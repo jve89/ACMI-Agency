@@ -1,7 +1,8 @@
-// client/src/components/sections/Sectors.tsx
+// client/src/components/sections/WhoWeServe.tsx
 import { Plane, Package, Globe, Trophy, Ambulance } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function Sectors() {
+export default function WhoWeServe() {
   const sectors = [
     { name: "Passenger airlines", Icon: Plane },
     { name: "Cargo operators", Icon: Package },
@@ -11,7 +12,7 @@ export default function Sectors() {
   ];
 
   return (
-    <section id="sectors" className="py-16 bg-gray-50">
+    <section id="who-we-serve" className="py-16 bg-gray-50">
       <div className="mx-auto max-w-6xl px-6 text-center">
         <h2 className="text-3xl font-bold text-gray-900">Who We Serve</h2>
         <p className="mt-3 mx-auto max-w-2xl text-gray-600">
@@ -29,6 +30,16 @@ export default function Sectors() {
             </li>
           ))}
         </ul>
+
+        {/* Learn More button */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/who-we-serve"
+            className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+          >
+            Learn More
+          </Link>
+        </div>
       </div>
     </section>
   );

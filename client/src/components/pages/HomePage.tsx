@@ -4,11 +4,11 @@ import Hero from "../sections/Hero";
 import WhatWeDo from "../sections/WhatWeDo";
 import HowItWorks from "../sections/HowItWorks";
 import WhoWeServe from "../sections/WhoWeServe";
+import WhyChooseUs from "../sections/WhyChooseUs";
 import CaseStudies from "../sections/CaseStudies";
 import Metrics from "../sections/Metrics";
 import Creds from "../sections/Creds";
 import Contact from "../sections/Contact";
-import WhyChooseUs from "../sections/WhyChooseUs";
 
 export default function HomePage() {
   return (
@@ -29,16 +29,16 @@ export default function HomePage() {
         <WhoWeServe />
       </section>
 
+      <section id="why-choose-us">
+        <WhyChooseUs />
+      </section>
+
       <section id="case-studies">
         <CaseStudies />
       </section>
 
       <section id="metrics">
         <Metrics />
-      </section>
-
-      <section id="why-choose-us">
-        <WhyChooseUs />
       </section>
 
       <section id="creds">
