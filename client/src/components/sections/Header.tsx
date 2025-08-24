@@ -1,4 +1,3 @@
-// client/src/components/Header.tsx
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -114,9 +113,9 @@ export default function Header() {
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Anchor href="/#services">Services</Anchor>
+                <Anchor href="/#what-we-do">What We Do</Anchor>
                 <Anchor href="/#how-it-works">How It Works</Anchor>
-                <Anchor href="/#sectors">Who We Serve</Anchor>
+                <Anchor href="/#who-we-serve">Who We Serve</Anchor>
               </div>
             )}
           </div>
@@ -159,7 +158,7 @@ export default function Header() {
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Anchor href="/#cases">Case Studies</Anchor>
+                <Anchor href="/#case-studies">Case Studies</Anchor>
                 <Anchor href="/#metrics">Metrics</Anchor>
               </div>
             )}
@@ -203,13 +202,13 @@ export default function Header() {
                 onMouseEnter={clearHide}
                 onMouseLeave={scheduleHide}
               >
-                <Link
-                  to="/why"
-                  className="block px-3 py-2 rounded hover:bg-gray-50"
+                <a
+                  href="#why-choose-us"
+                  className="block px-3 py-2 rounded hover:bg-gray-50 transition-colors"
                   onClick={() => setOpenMenu(null)}
                 >
-                  Why Us
-                </Link>
+                  Why Choose Us
+                </a>
                 <Link
                   to="/faq"
                   className="block px-3 py-2 rounded hover:bg-gray-50"
@@ -306,13 +305,13 @@ export default function Header() {
               </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <a href="/#services" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
-                Services
+              <a href="/#what-we-do" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+                What We Do
               </a>
               <a href="/#how-it-works" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 How It Works
               </a>
-              <a href="/#sectors" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              <a href="/#who-we-serve" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 Who We Serve
               </a>
             </nav>
@@ -337,7 +336,7 @@ export default function Header() {
               </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <a href="/#cases" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              <a href="/#case-studies" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 Case Studies
               </a>
               <a href="/#metrics" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
@@ -365,21 +364,25 @@ export default function Header() {
               </svg>
             </summary>
             <nav className="pl-2 pb-2 flex flex-col gap-2">
-              <Link to="/why" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
-                Why Us
-              </Link>
-              <Link to="/faq" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              <a
+                href="#why-choose-us"
+                onClick={() => setMobileOpen(false)}
+                className="py-1 hover:text-gray-900"
+              >
+                Why Choose Us
+              </a>
+              <a href="/#faq" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 FAQ
-              </Link>
-              <Link to="/privacy" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              </a>
+              <a href="/#privacy" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 Privacy
-              </Link>
-              <Link to="/terms" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              </a>
+              <a href="/#terms" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 Terms
-              </Link>
-              <Link to="/contact" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
+              </a>
+              <a href="/#contact" onClick={() => setMobileOpen(false)} className="py-1 hover:text-gray-900">
                 Contact
-              </Link>
+              </a>
             </nav>
           </details>
 
